@@ -1,0 +1,97 @@
+:root {
+    --primary-color: #202020;
+    --light-color: #d6d6d6;
+    --accent-color: #58bc80;
+    --dark-color: #000000;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    background-color: var(--primary-color);
+    font-family: 'Roboto', sans-serif;
+    color: var(--light-color);
+}
+
+
+/* Header */
+.header {
+    background-color: var(--dark-color);
+    padding: 15px;
+}
+
+.header__nav {
+    padding: 0 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    max-width: 800px;
+}
+
+.nav__logo {
+    color: var(--light-color);
+    text-decoration: none;
+    padding: 10px; 
+    align-self: first baseline;
+}
+
+.nav__menu {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+a {
+    color: var(--link-color);
+    text-decoration: none;
+    padding: 10px;
+}
+
+a:hover {
+    color: var(--accent-color);
+    text-decoration: none;
+}
+
+
+/* Hero */
+.hero {
+    text-align: center;
+    padding: 100px 20px;
+    background-image: url('imgs/pixelbuddha-studio-LHiYkrRC77M-unsplash.webp');
+    background-size: cover;
+    background-position: center;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: var(--accent-color);
+    border: none;
+    border-radius: 5px;
+    color: var(--dark-color);
+    cursor: pointer;
+    text-align: center;
+    margin: 20px;
+}
+
+button:hover {
+    background-color: var(--light-color);
+    color: var(--dark-color);
+}
+
+
+/* Content */
+.content {
+    max-width: 800px;
+    padding: 30px 60px;
+}
+
+/* Footer */
+.footer {
+    display: block;
+    text-align: center;
+    padding: 15px;
+    background-color: var(--dark-color);
+    color: var(--light-color);
+    margin: 0;
+}
