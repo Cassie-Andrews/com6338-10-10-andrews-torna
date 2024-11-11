@@ -7,25 +7,11 @@
     <meta name="description" content="">
     <title>Event Lineup </title>
     <link rel="stylesheet" href="styles.css">
-    <style>
-
-        @media (max-width: 600px) {
-            .title {
-                font-size: 2rem;
-            }
-            header h1 {
-                font-size: 1.8rem;
-            }
-            nav a {
-                margin: 0 8px;
-            }
-        }
-    </style>
 </head>
 <body>
     <header class="header">
         <nav class="header__nav">
-            <a href="index.html" class="nav__logo">Website Title</a>
+            <a href="index.html" class="nav__logo"><img src="images/Asset 1.png" width="100px"></a>
             <div>
                 <a href="spotify.html" class="nav__link">Playlists</a>
                 <a href="ticket.html" class="nav__link" >Lineup</a>
@@ -34,8 +20,12 @@
     </header>
     <section class="container__tickets">
         <h2 class="title__tickets">LINEUP</h2>
-        <div class="lineup-grid" id="lineup-grid">
+        <div id="lineup-grid" class="lineup-grid"></div>
         </div>
+        <form id="search-form" class="search-form">
+            <input type="text" id="artist-name" placeholder="Search for an artist" class="search-input" />
+            <button type="submit" class="search-button">Search</button>
+        </form>
     </section>
     <footer class="footer">
         <p>&copy; 2024 Cassie & Gaby. All rights reserved.</p>

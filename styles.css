@@ -116,10 +116,17 @@ button:hover {
     font-size: 55px;
     text-align: center;
 }
+
+.ticket__search {
+    font-size: 40px;
+}
+
 .lineup-grid {
             display:grid;
             grid-template-columns: repeat(3, minmax(250px, 1fr));
             gap: 25px;
+            padding-bottom: 30px;
+            padding: 30px 60px;
         }
 
         .artist-card {
@@ -132,14 +139,17 @@ button:hover {
         }
 
         .artist-card h3 {
+            font-family: 'lemon bold';
             font-size: 30px;
             margin-bottom: 5px;
         }
 
         .artist-card p {
             font-size: 25 px;
-            margin-bottom: 5px;
+            font-family: 'Lemon';
+            margin-bottom: 20px;
             color: #C5B3E3;
+            line-height: 15px;
         }
 
         .artist-card a {
@@ -148,3 +158,35 @@ button:hover {
             text-decoration: none;
             margin-right: 10px;
         }
+
+.search-form {
+    display: inline;
+    justify-content: center;
+    width: 200px;
+    height: 45px;
+    padding-bottom: px;
+    padding-left: 5px;
+}
+
+.search-input {
+    padding: 8px 20px; 
+    border: 2px solid #ccc;
+    border-radius: 50px;
+    width: 250px;
+    margin-right: 10px;
+}
+
+.search-button {
+    padding: 8px 12px;
+    background-color: #8C70D2;
+    color: white;
+    cursor: pointer;
+}
+
+.search-button:hover {
+    background-color: #b3005f;
+}
+
+
+          
+         
