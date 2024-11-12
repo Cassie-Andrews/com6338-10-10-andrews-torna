@@ -22,8 +22,6 @@ body {
     font-family: 'Lemon';
     color: var(--light-color);
     background-image: url("images/pixelbuddha-studio-LHiYkrRC77M-unsplash.webp");
-    font-family: 'Roboto', sans-serif;
-    color: var(--light-color);
 }
 
 
@@ -47,19 +45,18 @@ body {
     text-transform: uppercase;
     text-decoration: none;
     cursor: pointer;
-    background-color: var(--dark-color);
-    padding: 15px;
-}
-
-.header__nav {
-    padding: 0 30px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    max-width: 800px;
+    color: var(--light-color);
+    text-decoration: none;
+    padding: 10px; 
+    align-self: first baseline;
 }
 
 .nav__logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-decoration: none;
+    cursor: pointer;
     color: var(--light-color);
     text-decoration: none;
     padding: 10px; 
@@ -200,9 +197,4 @@ button:hover {
 
 .search-button:hover {
     background-color: #b3005f;
-}
-
-
-          
-         
 }
