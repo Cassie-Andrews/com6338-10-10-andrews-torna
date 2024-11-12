@@ -5,22 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <title>Project</title>
-    <title>Need a title here</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
     <header class="header">
-        <nav class="header__nav">
-            <a href="index.html" class="nav__logo"><img src="images/Asset 1.png" width="100px"></a>
-            <div>
-                <a href="spotify.html" class="nav__link">Playlists</a>
-                <a href="ticket.html" class="nav__link">Lineup</a>
-            <a href="#" class="nav__logo">Website Title</a>
-            <div>
-                <a href="#" class="nav__link">Spotify</a>
-                <a href="#" class="nav__link">Ticketmaster</a>
-            </div>
+        <div class="nav__logo">
+            <a href="index.html" ><img src="images/Asset 1.png" width="100px"></a>
+        </div>
+     
+        <nav class="header__nav" role="navigation" aria-label="Main menu">  
+            <button class="hamburger-btn" aria-expanded="false" aria-controls="main-menu"><img src="images/hamburger-icon.png" width="50px"></button>
+            <ul class="hamburger-menu" id="main-menu">
+                <li><a href="spotify.html" class="nav__link">Playlists</a></li>
+                <li><a href="ticket.html" class="nav__link">Lineup</a></li>
+            </ul>
         </nav>
     </header>
 
@@ -29,10 +28,11 @@
             <h1 class="hero__title">Welcome!</h1>
             <p class="hero__subtitle">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Velit assumenda quo est aliquam voluptas nesciunt ipsa reprehenderit? Consequuntur iste voluptates ratione facere modi sunt at.</p>
             <a href="https://www.billboard.com/music/awards/grammy-nominations-2025-full-list-1235823165/">
-                <button hero__button>Explore</button>
+                <button class="hero__button">Explore</button>
             </a>
             <button class="hero__button">Explore</button>
         </section>
+
         <section class="content">
             <div class="spotify__preview">
                 <h2>Spotify</h2>
@@ -47,10 +47,9 @@
 
     <footer class="footer">
         <p class="footer__text">&copy; 2024 Cassie & Gaby. All rights reserved.</p>
-        <p class="footer__text">&copy;2024 Website Title</p>
     </footer>
 
-    <script src="index.js"></script>
+<script src="index.js"></script>
     
 </body>
 </html>
