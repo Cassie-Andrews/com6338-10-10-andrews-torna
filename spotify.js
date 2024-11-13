@@ -40,8 +40,6 @@ async function getToken() {
     console.log('Token Response:', data); // Log the access token JSON response
     return data.access_token;
 }
-// HANDLE FORM SUBMISSION
-
 
 // SEARCH FOR ARTIST
 // endpoint https://api.spotify.com/v1/artists/{id}
@@ -49,3 +47,17 @@ async function getToken() {
 
 
 // DISPLAY RESULTS in the #search-results container
+
+
+// HANDLE FORM SUBMISSION
+document.getElementById('spotify-search').addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const query = document.getElementById('artist-name-search').ariaValueMax.trim();
+        console.log("User search input:" + " " + query);
+    if(!query) return; // if nothig entered, return
+
+    const token = await getToken(); // get access token and create resource
+    const artists = await searchArtists(query, token);// get search results
+    displayResults(artists);// display results
+});
