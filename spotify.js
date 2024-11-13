@@ -1,6 +1,8 @@
 /* DOCUMENTATION
 https://developer.spotify.com/documentation/web-api/concepts/api-calls */
 
+// "Please keep in mind that metadata, cover art and artist images must be accompanied by a link back to the applicable artist, album, track, or playlist on the Spotify Service. You must also attribute content from Spotify with the logo."
+
 /* REQUESTS
 GET Retrieves resources
 POST Creates resources
@@ -20,6 +22,7 @@ const clientId = 'b5d3e101d037470f94037829ff09e819';
 const clientSecret = '5982fca9946d40f5b3e83a36fe684b3e';
 const baseURL = 'https://api.spotify.com'
 
+
 // GET ACCESS TOKEN
 // To use the access token you must include the following header in your API calls:
     // Header Parameter: Authorization
@@ -27,11 +30,11 @@ const baseURL = 'https://api.spotify.com'
 async function getToken() {
     const response = await fetch('https://accounts.spotify.com/api/token', {
         method: 'POST', // POST Creates resources
-        body: newURLSearchParams({
+        body: new URLSearchParams({
             'grant_type': 'client_credentials',
         }),
         headers: {
-            'Content-Type': '',
+            'Content-Type': 'application/x-www-form-urlencoded',
             'Authorization': 'Basic ' + btoa(clientId + ':' + clientSecret),
         },
     });
@@ -39,21 +42,39 @@ async function getToken() {
     const data = await response.json();
     console.log('Token Response:', data); // Log the access token JSON response
     return data.access_token;
-}
+};
+
 
 // SEARCH FOR ARTIST
 // endpoint https://api.spotify.com/v1/artists/{id}
     // GET Retrieves resources
+async function searchArtists(query, token) {
+    const response = await fetch (`https://api.spotify.com/v1/search?q=${query}&type=artist&limit=6`, {
+        method: 'GET',
+        headers: { 'Authorization': `Bearer ${token}` },
+    });
+
+    const data = await response.json();
+    console.log('Search Response:', data); // Log the search results JSON response
+    return data.artists.items; // return list of artist objects
+}
 
 
 // DISPLAY RESULTS in the #search-results container
+function displayResults(artists) {
+    const resultsContainer = document.getElementById('search-results');
+
+    artists.forEach(element => {
+        
+    });
+};
 
 
 // HANDLE FORM SUBMISSION
 document.getElementById('spotify-search').addEventListener('submit', async (e) => {
     e.preventDefault();
 
-    const query = document.getElementById('artist-name-search').ariaValueMax.trim();
+    const query = document.getElementById('artist-name-search').value.trim();
         console.log("User search input:" + " " + query);
     if(!query) return; // if nothig entered, return
 
