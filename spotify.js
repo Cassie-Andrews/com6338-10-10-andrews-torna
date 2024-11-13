@@ -64,8 +64,19 @@ async function searchArtists(query, token) {
 function displayResults(artists) {
     const resultsContainer = document.getElementById('search-results');
 
-    artists.forEach(element => {
-        
+    artists.forEach(artist => {
+        const artistDiv = document.createElement('div');
+        const artistImage = artist.images.length > 0 ? artist.images[0].url : '#';
+        const artistName = artist.name;
+        const artistLink = artist.external_urls.spotify;
+        // CREATE ELEMENTS TO DISPLAY RESULTS
+        artistDiv.innerHTML = `
+            <img src="${artistImage}" class="artist-image">
+            <h3 class="artist-name">${artistName}</h3>
+            <a href="${artistLink}" target="_blank" class="artist-link">More on Spotify</a>
+        `;
+        // APPEND NEW ELEMENTS TO CONTAINER
+        resultsContainer.appendChild(artistDiv);
     });
 };
 
