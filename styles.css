@@ -305,6 +305,7 @@ button:hover {
     .artist-card img {
         height: 180px;
         object-fit: cover;
+    }
 
     .artist-card h3 {
         font-size: 24px;
