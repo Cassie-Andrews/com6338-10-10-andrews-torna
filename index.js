@@ -13,7 +13,6 @@ function toggleMenu() {
 
 // Event listener for button click
 hamburgerBtn.addEventListener ("click", toggleMenu);
-    console.log('click!')
 
 // Event listener for click outside menu to close if menu is open
 document.addEventListener ("click", function(event) {

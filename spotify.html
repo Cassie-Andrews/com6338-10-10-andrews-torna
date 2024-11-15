@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
     <meta name="description" content="">
     <title>Spotify</title>
     <link rel="stylesheet" href="styles.css">
@@ -24,18 +23,26 @@
     </header>
 
     <main class="main">
-        <section class="content">
-                <h2>Spotify</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat id necessitatibus consectetur eius corporis quos beatae eligendi eos alias nostrum maxime itaque odio non iure saepe, ab quaerat corrupti voluptatibus consequatur eaque dolorum aut provident magnam. Ratione commodi perspiciatis ab iste quam! Perspiciatis laboriosam voluptate numquam pariatur corrupti, harum quidem.</p>
+        <section class="container-spotify">
+            <h2 class="title__tickets">PLAYLISTS</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat id necessitatibus consectetur eius corporis quos beatae eligendi eos alias nostrum maxime itaque odio non iure saepe, ab quaerat corrupti voluptatibus consequatur eaque dolorum aut provident magnam.</p>
+            
+            <form id="spotify-search">
+                <input type="text" id="artist-name-search" placeholder="Search for an artist" class="search-input"/>
+                <button class="search-button">Search</button>
+            </form>
+
+            <div id="search-results" class="search-results">
+            <!--- SEARCH RESULTS WILL DISPLAY HERE -->
+            </div>
         </section>
     </main>
 
     <footer class="footer">
         <p class="footer__text">&copy; 2024 Cassie & Gaby. All rights reserved.</p>
-        <p class="footer__text">&copy;2024 Website Title</p>
     </footer>
 
     <script src="index.js"></script>
-
+    <script src="spotify.js"></script>
 </body>
 </html>
