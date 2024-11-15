@@ -21,10 +21,10 @@ body {
     background-color: var(--primary-color);
     font-family: 'Lemon';
     color: var(--light-color);
-    background-image: url("images/pixelbuddha-studio-LHiYkrRC77M-unsplash.webp");
-}
+    /*background-image: url("images/pixelbuddha-studio-LHiYkrRC77M-unsplash.webp");
+*/}
 
-/* Header */
+/* Header & nav */
 .header {
     font-family: 'Lemon Bold';
     background-color: var(--dark-color);
@@ -49,13 +49,13 @@ body {
     cursor: pointer;
 }
 
-a {
+a.nav__link {
     color: var(--link-color);
     text-decoration: none;
     padding: 10px;
 }
 
-a:hover {
+a.nav__link:hover {
     color: var(--accent-color);
     text-decoration: none;
 }
@@ -63,31 +63,36 @@ a:hover {
 
 /* Hero */
 .hero {
+    display: flex;
+    flex-direction: column;
     text-align: center;
     padding: 100px 20px;
-    background-image: url('imgs/pixelbuddha-studio-LHiYkrRC77M-unsplash.webp');
+    background-image: url('images/pixelbuddha-studio-LHiYkrRC77M-unsplash.webp');
     background-size: cover;
     background-position: center;
+    align-items: center;
 }
 
 .hero__button {
-    padding: 10px 20px;
     background-color: var(--accent-color);
     border: none;
     border-radius: 5px;
     color: var(--dark-color);
     cursor: pointer;
     text-align: center;
+    text-decoration: none; 
+    padding: 10px 20px;
     margin: 20px;
+    width: 100px;
 }
 
-button:hover {
+.hero__button:hover {
     background-color: var(--light-color);
     color: var(--dark-color);
 }
 
 
-/* Content */
+/* Page content */
 .main {
     display: flex;
     flex-direction: column;
@@ -96,7 +101,11 @@ button:hover {
 }
 
 .content {
-    padding: 30px 60px;
+    display: flex;
+    flex-direction: column;
+    max-width: 800px;
+    align-self: center;
+    text-align: center;
 }
 
 /* Footer */
