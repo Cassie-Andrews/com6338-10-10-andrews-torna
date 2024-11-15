@@ -16,7 +16,7 @@ https://developer.spotify.com/documentation/web-api/concepts/spotify-uris-ids */
 // https://developer.spotify.com/documentation/web-api/tutorials/client-credentials-flow
 // "The Client Credentials flow is used in server-to-server authentication. Since this flow does not include authorization, only endpoints that do not access user information can be accessed.""
 
-const form = document.getElementById('spotify-search');
+const form = document.getElementById('search-form');
 
 const clientId = 'b5d3e101d037470f94037829ff09e819';
 const clientSecret = '5982fca9946d40f5b3e83a36fe684b3e';
@@ -82,7 +82,7 @@ function displayResults(artists) {
 
 
 // HANDLE FORM SUBMISSION
-document.getElementById('spotify-search').addEventListener('submit', async (e) => {
+document.getElementById('search-form').addEventListener('submit', async (e) => {
     e.preventDefault();
 
     const query = document.getElementById('artist-name-search').value.trim();
