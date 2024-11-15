@@ -63,6 +63,7 @@ async function searchArtists(query, token) {
 // DISPLAY RESULTS in the #search-results container
 function displayResults(artists) {
     const resultsContainer = document.getElementById('search-results');
+    resultsContainer.innerHTML = ''; // clear previous results
 
     artists.forEach(artist => {
         const artistDiv = document.createElement('div');
