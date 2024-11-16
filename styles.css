@@ -21,11 +21,10 @@ body {
     background-color: var(--primary-color);
     font-family: 'Lemon';
     color: var(--light-color);
-    background-image: url("images/pixelbuddha-studio-LHiYkrRC77M-unsplash.webp");
-}
+    /*background-image: url("images/pixelbuddha-studio-LHiYkrRC77M-unsplash.webp");
+*/}
 
-
-/* Header */
+/* Header & nav */
 .header {
     font-family: 'Lemon Bold';
     background-color: var(--dark-color);
@@ -50,13 +49,13 @@ body {
     cursor: pointer;
 }
 
-a {
+a.nav__link {
     color: var(--link-color);
     text-decoration: none;
     padding: 10px;
 }
 
-a:hover {
+a.nav__link:hover {
     color: var(--accent-color);
     text-decoration: none;
 }
@@ -64,34 +63,49 @@ a:hover {
 
 /* Hero */
 .hero {
+    display: flex;
+    flex-direction: column;
     text-align: center;
     padding: 100px 20px;
-    background-image: url('imgs/pixelbuddha-studio-LHiYkrRC77M-unsplash.webp');
+    background-image: url('images/pixelbuddha-studio-LHiYkrRC77M-unsplash.webp');
     background-size: cover;
     background-position: center;
+    align-items: center;
 }
 
 .hero__button {
-    padding: 10px 20px;
     background-color: var(--accent-color);
     border: none;
     border-radius: 5px;
     color: var(--dark-color);
     cursor: pointer;
     text-align: center;
+    text-decoration: none; 
+    padding: 10px 20px;
     margin: 20px;
+    width: 100px;
 }
 
-button:hover {
+.hero__button:hover {
     background-color: var(--light-color);
     color: var(--dark-color);
 }
 
 
-/* Content */
+/* Page content */
+.main {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    text-align: center;
+}
+
 .content {
+    display: flex;
+    flex-direction: column;
     max-width: 800px;
-    padding: 30px 60px;
+    align-self: center;
+    text-align: center;
 }
 
 /* Footer */
@@ -104,6 +118,8 @@ button:hover {
     margin: 0;
 }
 
+
+/* Ticket page */
 .title__tickets {
     font-family: 'lemon bold';
     font-size: 55px;
@@ -185,41 +201,28 @@ button:hover {
     background-color: #b3005f;
 }
 
-/* Media Queries for resizing */
 
-/*
-.header__nav {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.nav__logo {
-    font-size: 1.5rem;
-    font-weight: bold;
-    text-transform: uppercase;
-    text-decoration: none;
-    cursor: pointer;
-    background-color: var(--dark-color);
-    padding: 15px;
-}
-
-.header__nav {
-    padding: 0 30px;
+/* Spotify search results */
+.search-results {
+    padding: 30px 60px;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    max-width: 800px;
-}
-
-.hamburger-menu > li {
+    flex-wrap: wrap;
+    align-items:first baseline;
     justify-content: space-around;
-    align-items: center;
+    text-align: center;
 }
-*/
 
+.search-results > div {
+    padding: 40px;
+    max-width: 400px;
+}
 
+img.artist-image {
+    max-width: 400px;
+}
+
+/* Media queries for resizing */
 @media screen and (max-width: 800px) {
     .hamburger-btn {
         display: block; /* show button on smaller screens */
