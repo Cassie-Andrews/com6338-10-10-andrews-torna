@@ -42,12 +42,12 @@ async function getToken() {
     const data = await response.json();
     console.log('Token Response:', data); // Log the access token JSON response
     return data.access_token;
-};
+}
 
 
 // ARTIST SEARCH BY NAME TO GET SPOTIFY ID
 async function searchArtists(query, token) {
-    const response = await fetch (`https://api.spotify.com/v1/search?q=${query}&type=artist&limit=1`, {
+    const response = await fetch(`https://api.spotify.com/v1/search?q=${query}&type=artist&limit=1`, {
         method: 'GET',
         headers: { 'Authorization': `Bearer ${token}` },
     });
@@ -61,7 +61,7 @@ async function searchArtists(query, token) {
 
 // USE ARTIST ID TO RETURN THEIR ALBUMS
 async function getAlbums(artistID, token) {
-    const response = await fetch (`https://api.spotify.com/v1/artists/${artistID}/albums`, {
+    const response = await fetch(`https://api.spotify.com/v1/artists/${artistID}/albums`, { 
         method: 'GET',
         headers: { 'Authorization': `Bearer ${token}` },
     });
@@ -112,8 +112,8 @@ document.getElementById('spotify-search').addEventListener('submit', async (e) =
 
     const token = await getToken(); // get access token and create resource
     const artistID = await searchArtists(query, token); // get ID from search results
-    const albums = await getAlbums(); // get artist's albums
-    const artistResponse = await fetch(`https://accounts.spotify.com/v1/artists/${artistID}`, {
+    const albums = await getAlbums(artistID, token); // get artist's albums
+    const artistResponse = await fetch(`https://api.spotify.com/v1/artists/${artistID}`, {
         method: 'GET',
         headers: { 'Authorization': `Bearer ${token}` },        
     });
