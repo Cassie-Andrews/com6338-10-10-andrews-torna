@@ -262,14 +262,45 @@ a.nav__link:hover {
     color: var(--dark-color);
 }
 
+
+/* SPOTIFY */
+.container__spotify {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+    .title__spotify {
+        font-family: 'lemon bold';
+        font-size: 55px;
+        text-align: center;
+    }
+
+    #spotify-search {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+        padding: 12px;
+    }
+
+        #artist-name-search {
+            margin: 10px;
+        }
+
+        #spotify-search-button {
+            margin: 10px;
+        }
+
 /* Spotify search results */
 .search-results {
     /*padding: 30px 60px;*/
-    /*display: flex;*/
+    display: flex;
     flex-wrap: wrap;
     align-content: space-around;
     justify-content: space-around;
     align-self: center;
+    max-width: 900px;
 }
 
     /* Spotify artist info */
@@ -277,6 +308,7 @@ a.nav__link:hover {
         display: felx;
         flex-wrap: wrap;
         margin: 30px;
+        align-self: center;
         justify-content: center;
         /* below this point, follows .artist-card styles */
         background-color: var(--card-color);
@@ -284,7 +316,6 @@ a.nav__link:hover {
         border-radius: 8px;
         color: var(--light-color);
         text-align: center;
-        min-width: 200px;
     }
 
             .artist-image {
@@ -294,13 +325,21 @@ a.nav__link:hover {
             }
 
             .artist-info {
-                padding: 10px;
                 height: 100%;
                 width: 100%;
                 align-content: flex-end;
                 text-align: left;
                 display: flex;
                 flex-direction: column;
+            }
+
+            .artist-name { 
+                /* same as .artist-card h3 */
+                font-family: 'lemon bold';
+                font-size: 30px;
+                margin: 5px 0px;
+                color: #FFFFFF;
+                line-height: 32px;
             }
 
             .artist-link {
@@ -318,7 +357,7 @@ a.nav__link:hover {
             align-self: center;
             justify-content: space-around;
             align-content: space-around;
-            margin: 0;
+            margin: 20px;
             padding: 0;
         }
 
