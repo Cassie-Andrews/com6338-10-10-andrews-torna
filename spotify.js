@@ -45,18 +45,18 @@ async function getToken() {
 };
 
 
-// SEARCH FOR ARTIST
-// endpoint https://api.spotify.com/v1/artists/{id}
-    // GET Retrieves resources
+// ARTIST SEARCH BY NAME TO GET SPOTIFY ID
 async function searchArtists(query, token) {
-    const response = await fetch (`https://api.spotify.com/v1/search?q=${query}&type=artist&limit=6`, {
+    const response = await fetch (`https://api.spotify.com/v1/search?q=${query}&type=artist&limit=1`, {
         method: 'GET',
         headers: { 'Authorization': `Bearer ${token}` },
     });
 
     const data = await response.json();
-    console.log('Search Response:', data); // Log the search results JSON response
-    return data.artists.items; // return list of artist objects
+    const artist = data.artists.items[0];
+    const artistID = artist.id;
+    console.log('Search Response:', artist); // Log the search results JSON response
+    return artist.id; // return artist ID
 }
 
 
