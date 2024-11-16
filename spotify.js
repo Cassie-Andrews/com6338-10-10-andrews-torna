@@ -1,32 +1,10 @@
-/* DOCUMENTATION
-https://developer.spotify.com/documentation/web-api/concepts/api-calls */
-
-// "Please keep in mind that metadata, cover art and artist images must be accompanied by a link back to the applicable artist, album, track, or playlist on the Spotify Service. You must also attribute content from Spotify with the logo."
-
-/* REQUESTS
-GET Retrieves resources
-POST Creates resources
-PUT Changes and/or replaces resources or collections
-DELETE Deletes resources */
-
-/* SPOTIFY URIs & IDs 
-https://developer.spotify.com/documentation/web-api/concepts/spotify-uris-ids */
-
-// Authentication & token via client credentials flow
-// https://developer.spotify.com/documentation/web-api/tutorials/client-credentials-flow
-// "The Client Credentials flow is used in server-to-server authentication. Since this flow does not include authorization, only endpoints that do not access user information can be accessed.""
-
 const form = document.getElementById('spotify-search');
-
 const clientId = 'b5d3e101d037470f94037829ff09e819';
 const clientSecret = '5982fca9946d40f5b3e83a36fe684b3e';
 const baseURL = 'https://api.spotify.com'
 
 
 // GET ACCESS TOKEN
-// To use the access token you must include the following header in your API calls:
-    // Header Parameter: Authorization
-    // Value: Valid access token following the format: Bearer <Access Token>
 async function getToken() {
     const response = await fetch('https://accounts.spotify.com/api/token', {
         method: 'POST', // POST Creates resources
@@ -59,7 +37,7 @@ async function searchArtists(query, token) {
     return artist.id; // return artist ID
 }
 
-// USE ARTIST ID TO RETURN THEIR ALBUMS
+// USE ARTIST ID TO RETURN ARTIST'S ALBUMS
 async function getAlbums(artistID, token) {
     const response = await fetch(`https://api.spotify.com/v1/artists/${artistID}/albums`, { 
         method: 'GET',
@@ -88,7 +66,7 @@ function updateDisplay(artist, albums) {
     `;
     resultsContainer.appendChild(artistDiv);
 
-//**  // display albums
+  // display albums
     const albumsList = document.createElement('ul'); // make list of albums
     albums.forEach(album => { // for each album
         const albumItem = document.createElement('li'); // make a list item
@@ -121,3 +99,27 @@ document.getElementById('spotify-search').addEventListener('submit', async (e) =
 
     updateDisplay(artistData, albums);// display results
 });
+
+
+
+//NOTES
+    // DOCUMENTATION: https://developer.spotify.com/documentation/web-api/concepts/api-calls
+
+    // "Please keep in mind that metadata, cover art and artist images must be accompanied by a link back to the applicable artist, album, track, or playlist on the Spotify Service. You must also attribute content from Spotify with the logo."
+
+    // REQUESTS
+        // GET Retrieves resources
+        // POST Creates resources
+        // PUT Changes and/or replaces resources or collections
+        // DELETE Deletes resources 
+
+    // SPOTIFY URIs & IDs: https://developer.spotify.com/documentation/web-api/concepts/spotify-uris-ids
+
+    // Authentication & token via client credentials flow
+    // https://developer.spotify.com/documentation/web-api/tutorials/client-credentials-flow
+    // "The Client Credentials flow is used in server-to-server authentication. Since this flow does not include authorization, only endpoints that do not access user information can be accessed.""
+
+    // To use the access token you must include the following header in your API calls:
+    // Header Parameter: Authorization
+    // Value: Valid access token following the format: Bearer <Access Token>
+ 
