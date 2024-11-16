@@ -179,10 +179,11 @@ a.nav__link:hover {
         }
 
 .search-form {
-    display: inline;
-    width: 200px;
-    height: 45px;
-    padding-left: 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 12px;
 }
 
 .search-input {
