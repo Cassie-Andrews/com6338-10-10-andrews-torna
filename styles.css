@@ -439,5 +439,128 @@ img.artist-image {
         padding-bottom: 2px;
         padding-top: 2px;
 
+/* Spotify search results */
+.search-results {
+    padding: 30px 60px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items:first baseline;
+    justify-content: space-around;
+    text-align: center;
+}
+
+.search-results > div {
+    padding: 40px;
+    max-width: 400px;
+}
+
+img.artist-image {
+    max-width: 400px;
+}
+
+/* Media queries for resizing */
+@media screen and (max-width: 800px) {
+    .hamburger-btn {
+        display: block; /* show button on smaller screens */
+    }
+
+    ul.hamburger-menu {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 50px;
+        left: 0;
+        width: 100%;
+        background-color: var(--dark-color);
+        transform: translateY(-10px);
+        visibility: hidden;
+        transition: transform 0.3s ease-in-out, visibility 0s 0.3s;
+        padding: 0;
+        opacity: 0;
+    }
+
+    ul.hamburger-menu.show-menu {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+        transition: transform 0.3s ease-in-out, visibility 0s 0.3s;
+    }
+
+    ul.hamburger-menu li {
+        padding: 10px 0;
+        margin: 0;
+        text-align: center;
+        font-weight: 500;
+        color: var(--light-color);
+        font-family: 'Lemon', sans-serif;
+        visibility: hidden;
+        opacity: 0;
+        transition: opacity 0.2s ease-in-out, visibility 0s 0.3s;
+    }
+
+    nav ul.hamburger-menu.show-menu li {
+        visibility: visible;
+        opacity: 1;
+        transition: opacity 0.2s ease-in-out, visibility 0s 0s;
+    }
+    
+    ul.hamburger-menu li:last-child {
+        padding: 20px;
+    }
+}
+
+
+@media screen and (max-width: 1300px) {
+    nav > ul {
+        justify-content: space-evenly;
+    }
+
+    nav > ul > li {
+        margin-left: 0;
+    }
+}
+
+/* Ticket mobile responsive */
+
+@media (max-width: 800px) {
+    .lineup-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 20px;
+    }
+
+    .title__tickets {
+        font-size: 35px;
+    }
+
+    .ticket__search {
+        font-size: 28px;
+    }
+
+    .artist-card {
+        padding: 15px;
+    }
+
+    .artist-card img {
+        height: 180px;
+        object-fit: cover;
+    }
+
+    .artist-card h3 {
+        font-size: 24px;
+    }
+
+    .artist-card p {
+        font-size: 18px;
+    }
+
+    .search-input {
+        width: 200px;
+    }
+
+    .search-button {
+        padding: 8px 10px;
+        font-size: 14px;
     }
 }
