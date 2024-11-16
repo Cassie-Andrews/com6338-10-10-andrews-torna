@@ -76,7 +76,9 @@ a.nav__link:hover {
 }
 
 
-/* Hero */
+/*
+we can delete this if we decide to get rid of the hero element for sure!
+
 .hero {
     display: flex;
     flex-direction: column;
@@ -106,7 +108,7 @@ a.nav__link:hover {
     background-color: var(--light-color);
     color: var(--dark-color);
 }
-
+*/
 
 /* Page content */
 .main {
@@ -125,14 +127,6 @@ a.nav__link:hover {
 }
 
 /* Footer */
-/*.footer {
-    display: block;
-    text-align: center;
-    padding: 15px;
-    background-color: var(--dark-color);
-    color: var(--light-color);
-    margin: 0;
-}*/
 .footer {
     flex-shrink: 0;
     text-align: center;
