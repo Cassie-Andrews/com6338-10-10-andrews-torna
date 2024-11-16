@@ -1,24 +1,4 @@
-35-add-album-info-to-spotifyjs
 const form = document.getElementById('spotify-search');
-/* DOCUMENTATION
-https://developer.spotify.com/documentation/web-api/concepts/api-calls */
-
-// "Please keep in mind that metadata, cover art and artist images must be accompanied by a link back to the applicable artist, album, track, or playlist on the Spotify Service. You must also attribute content from Spotify with the logo."
-
-/* REQUESTS
-GET Retrieves resources
-POST Creates resources
-PUT Changes and/or replaces resources or collections
-DELETE Deletes resources */
-
-/* SPOTIFY URIs & IDs 
-https://developer.spotify.com/documentation/web-api/concepts/spotify-uris-ids */
-
-// Authentication & token via client credentials flow
-// https://developer.spotify.com/documentation/web-api/tutorials/client-credentials-flow
-// "The Client Credentials flow is used in server-to-server authentication. Since this flow does not include authorization, only endpoints that do not access user information can be accessed.""
-
-const form = document.getElementById('search-form');
 
 const clientId = 'b5d3e101d037470f94037829ff09e819';
 const clientSecret = '5982fca9946d40f5b3e83a36fe684b3e';
@@ -76,45 +56,37 @@ function updateDisplay(artist, albums) {
     const resultsContainer = document.getElementById('search-results');
     resultsContainer.innerHTML = ''; // clear previous results
 
-35-add-album-info-to-spotifyjs
     // display artist info
     const artistDiv = document.createElement('div');
-
+        artistDiv.classList.add('artist-container'); 
     artistDiv.innerHTML = `
         <img src=${artist.images.length > 0 ? artist.images[0].url : '#'} class="artist-image" alt="${artist.name}">
-        <h3 class="artist-name">${artist.name}</h3>
-        <p class ="artist-followers">${artist.followers.total} Followers</p>
-        <a href="${artist.external_urls.spotify}" target="_blank" class="artist-link">More on Spotify</a>
+        <div class="artist-info">
+            <h3 class="artist-name">${artist.name}</h3>
+            <p class ="artist-followers">${artist.followers.total} Followers</p>
+            <a href="${artist.external_urls.spotify}" target="_blank" class="artist-link">More on Spotify</a>
+        </div>
     `;
     resultsContainer.appendChild(artistDiv);
 
   // display albums
     const albumsList = document.createElement('ul'); // make list of albums
+        albumsList.classList.add('albums-list'); 
+
     albums.forEach(album => { // for each album
         const albumItem = document.createElement('li'); // make a list item
         albumItem.innerHTML = `
             <img src=${album.images.length > 0 ? album.images[0].url : '#'} alt="${album.name}" class="album-image">
             <a href="${album.external_urls.spotify}" target="_blank" class="album-link">${album.name}</a>
-=======
-    artists.forEach(artist => {
-        const artistDiv = document.createElement('div');
-        const artistImage = artist.images.length > 0 ? artist.images[0].url : '#';
-        const artistName = artist.name;
-        const artistLink = artist.external_urls.spotify;
-        // CREATE ELEMENTS TO DISPLAY RESULTS
-        artistDiv.innerHTML = `
-            <img src="${artistImage}" class="artist-image">
-            <h3 class="artist-name">${artistName}</h3>
-            <a href="${artistLink}" target="_blank" class="artist-link">More on Spotify</a>
         `;
         albumsList.appendChild(albumItem); // append item to list
-    });     
+    });
     resultsContainer.appendChild(albumsList);// append list to display
 };
 
 
 // HANDLE FORM SUBMISSION
-document.getElementById('search-form').addEventListener('submit', async (e) => {
+document.getElementById('spotify-search').addEventListener('submit', async (e) => {
     e.preventDefault();
 
     const query = document.getElementById('artist-name-search').value.trim();
@@ -127,7 +99,7 @@ document.getElementById('search-form').addEventListener('submit', async (e) => {
     const artistResponse = await fetch(`https://api.spotify.com/v1/artists/${artistID}`, {
         method: 'GET',
         headers: { 'Authorization': `Bearer ${token}` },        
-    });
+       });
     const artistData = await artistResponse.json(); 
 
     updateDisplay(artistData, albums);// display results
@@ -138,7 +110,7 @@ document.getElementById('search-form').addEventListener('submit', async (e) => {
 //NOTES
     // DOCUMENTATION: https://developer.spotify.com/documentation/web-api/concepts/api-calls
 
-    // "Please keep in mind that metadata, cover art and artist images must be accompanied by a link back to the applicable artist, album, track, or playlist on the Spotify Service. You must also attribute content from Spotify with the logo."
+    // Please keep in mind that metadata, cover art and artist images must be accompanied by a link back to the applicable artist, album, track, or playlist on the Spotify Service. You must also attribute content from Spotify with the logo.
 
     // REQUESTS
         // GET Retrieves resources
@@ -154,5 +126,23 @@ document.getElementById('search-form').addEventListener('submit', async (e) => {
 
     // To use the access token you must include the following header in your API calls:
     // Header Parameter: Authorization
-    // Value: Valid access token following the format: Bearer <Access Token>
+    /* Value: Valid access token following the format: Bearer <Access Token> */
  
+
+/* DOCUMENTATION
+https://developer.spotify.com/documentation/web-api/concepts/api-calls */
+
+// "Please keep in mind that metadata, cover art and artist images must be accompanied by a link back to the applicable artist, album, track, or playlist on the Spotify Service. You must also attribute content from Spotify with the logo."
+
+/* REQUESTS
+GET Retrieves resources
+POST Creates resources
+PUT Changes and/or replaces resources or collections
+DELETE Deletes resources */
+
+/* SPOTIFY URIs & IDs 
+https://developer.spotify.com/documentation/web-api/concepts/spotify-uris-ids */
+
+// Authentication & token via client credentials flow
+// https://developer.spotify.com/documentation/web-api/tutorials/client-credentials-flow
+// "The Client Credentials flow is used in server-to-server authentication. Since this flow does not include authorization, only endpoints that do not access user information can be accessed.""
