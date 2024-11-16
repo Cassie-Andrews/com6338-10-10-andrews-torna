@@ -88,7 +88,7 @@ function updateDisplay(artist, albums) {
     `;
     resultsContainer.appendChild(artistDiv);
 
-    // display albums
+//**  // display albums
     const albumsList = document.createElement('ul'); // make list of albums
     albums.forEach(album => { // for each album
         const albumItem = document.createElement('li'); // make a list item
@@ -111,6 +111,13 @@ document.getElementById('spotify-search').addEventListener('submit', async (e) =
     if(!query) return; // if nothig entered, return
 
     const token = await getToken(); // get access token and create resource
-    const artists = await searchArtists(query, token);// get search results
-    updateDisplay(artists);// display results
+    const artistID = await searchArtists(query, token); // get ID from search results
+    const albums = await getAlbums(); // get artist's albums
+    const artistResponse = await fetch(`https://accounts.spotify.com/v1/artists/${artistID}`, {
+        method: 'GET',
+        headers: { 'Authorization': `Bearer ${token}` },        
+    });
+    const artistData = await artistResponse.json(); 
+
+    updateDisplay(artistData, albums);// display results
 });
