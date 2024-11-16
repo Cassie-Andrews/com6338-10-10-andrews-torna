@@ -124,6 +124,7 @@ we can delete this if we decide to get rid of the hero element for sure!
     max-width: 800px;
     align-self: center;
     text-align: center;
+    justify-content: center;
 }
 
 /* Footer */
