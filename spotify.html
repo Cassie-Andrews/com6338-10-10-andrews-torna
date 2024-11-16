@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <title>Spotify</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header class="header">
+        <div class="header__nav">
+                <a href="index.html" ><img src="images/Asset 1.png" width="100px"></a>
+            </div>
+            <nav class="header__nav" role="navigation" aria-label="Main menu">  
+                <button class="hamburger-btn" aria-expanded="false" aria-controls="main-menu"><img src="images/hamburger-icon.png" width="50px"></button>
+                <ul class="hamburger-menu" id="main-menu">
+                    <li><a href="spotify.html" class="nav__link">Playlists</a></li>
+                    <li><a href="ticket.html" class="nav__link">Lineup</a></li>
+                </ul>   
+            </nav>
+    </header>
+
+    <main class="main">
+        <section class="content">
+            <h2 class="title__tickets">PLAYLISTS</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat id necessitatibus consectetur eius corporis quos beatae eligendi eos alias nostrum maxime itaque odio non iure saepe, ab quaerat corrupti voluptatibus consequatur eaque dolorum aut provident magnam.</p>
+            
+            <form id="search-form">
+                <input type="text" id="artist-name-search" placeholder="Search for an artist" class="search-input"/>
+                <button class="search-button">Search</button>
+            </form>
+        </section>
+                  
+
+            <div id="search-results" class="search-results">
+            <!--- SEARCH RESULTS WILL DISPLAY HERE -->
+            </div>
+
+    </main>
+
+    <footer class="footer">
+        <p class="footer__text">&copy; 2024 Cassie & Gaby. All rights reserved.</p>
+    </footer>
+
+    <script src="index.js"></script>
+    <script src="spotify.js"></script>
+</body>
+</html>

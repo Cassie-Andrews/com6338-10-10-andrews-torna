@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ticketmaster Events</title>
+    <meta name="description" content="">
+    <title>Event Lineup </title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="header">
+        <div class="nav__logo">
+            <a href="index.html" ><img src="images/Asset 1.png" width="100px"></a>
+        </div>
+        <nav class="header__nav" role="navigation" aria-label="Main menu">  
+            <button class="hamburger-btn" aria-expanded="false" aria-controls="main-menu"><img src="images/hamburger-icon.png" width="50px"></button>
+            <ul class="hamburger-menu" id="main-menu">
+                <li><a href="spotify.html" class="nav__link">Playlists</a></li>
+                <li><a href="ticket.html" class="nav__link">Lineup</a></li>
+            </ul>   
+        </nav>
+    </header>
+    <section class="container__tickets">
+        <h2 class="title__tickets">LINEUP</h2>
+        <div id="lineup-grid" class="lineup-grid"></div>
+        </div>
+        <form id="search-form" class="search-form">
+            <input type="text" id="artist__name" placeholder="Search for an artist" class="search-input" />
+            <button type="submit" class="search-button">Search</button>
+        </form>
+    </section>
+    <footer class="footer">
+        <p>&copy; 2024 Cassie & Gaby. All rights reserved.</p>
+    </footer>
+    <script src="ticket.js"></script>
+    <script src="index.js"></script>
+</body>
+</html>

@@ -24,8 +24,7 @@ body {
     background-image: url("images/pixelbuddha-studio-LHiYkrRC77M-unsplash.webp");
 }
 
-
-/* Header */
+/* Header & nav */
 .header {
     font-family: 'Lemon Bold';
     background-color: var(--dark-color);
@@ -50,13 +49,13 @@ body {
     cursor: pointer;
 }
 
-a {
+a.nav__link {
     color: var(--link-color);
     text-decoration: none;
     padding: 10px;
 }
 
-a:hover {
+a.nav__link:hover {
     color: var(--accent-color);
     text-decoration: none;
 }
@@ -64,35 +63,50 @@ a:hover {
 
 /* Hero */
 .hero {
+    display: flex;
+    flex-direction: column;
     text-align: center;
     padding: 100px 20px;
-    background-image: url('imgs/pixelbuddha-studio-LHiYkrRC77M-unsplash.webp');
+    background-image: url('images/pixelbuddha-studio-LHiYkrRC77M-unsplash.webp');
     background-size: cover;
     background-position: center;
+    align-items: center;
 }
 
 .hero__button {
-    padding: 10px 20px;
     background-color: var(--accent-color);
     border: none;
     border-radius: 5px;
-    color: var(--light-color);
+    color: var(--dark-color);
     cursor: pointer;
     text-align: center;
+    text-decoration: none; 
+    padding: 10px 20px;
     margin: 20px;
+    width: 100px;
     font-family: 'lemon bold';
 }
 
-button:hover {
+.hero__button:hover {
     background-color: var(--light-color);
     color: var(--dark-color);
 }
 
 
-/* Content */
+/* Page content */
+.main {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    text-align: center;
+}
+
 .content {
+    display: flex;
+    flex-direction: column;
     max-width: 800px;
-    padding: 30px 60px;
+    align-self: center;
+    text-align: center;
 }
 
 /* Footer */
@@ -105,6 +119,8 @@ button:hover {
     margin: 0;
 }
 
+
+/* Ticket page */
 .title__tickets {
     font-family: 'lemon bold';
     font-size: 55px;
@@ -188,8 +204,8 @@ button:hover {
 
 .spotify__image {
     display: block;
-    padding-bottom: 5px;
-    width: 1400px;
+    padding-bottom: 10px;
+    width: 1000px;
     margin-left: 30px;
     margin-right: 30px;
 }
@@ -211,7 +227,7 @@ button:hover {
 .fticket__image {
     display: block;
     padding-bottom: 5px;
-    width: 1400px;
+    width: 1000px;
     margin-left: 30px;
     margin-right: 30px;
 }
@@ -226,49 +242,44 @@ button:hover {
     font-family: 'lemon bold';
 }
 
+.ticketmaster__preview{
+    padding-bottom: 20px;
+}
+
+.spotify__preview{
+    padding-bottom: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+}
+
 .sticket__button:hover{
     background-color: var(--light-color);
     color: var(--dark-color);
 }
 
-
-
-
-/* Media Queries for resizing */
-
-/*
-.header__nav {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.nav__logo {
-    font-size: 1.5rem;
-    font-weight: bold;
-    text-transform: uppercase;
-    text-decoration: none;
-    cursor: pointer;
-    background-color: var(--dark-color);
-    padding: 15px;
-}
-
-.header__nav {
-    padding: 0 30px;
+/* Spotify search results */
+.search-results {
+    padding: 30px 60px;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    max-width: 800px;
-}
-
-.hamburger-menu > li {
+    flex-wrap: wrap;
+    align-items:first baseline;
     justify-content: space-around;
-    align-items: center;
+    text-align: center;
 }
-*/
 
+.search-results > div {
+    padding: 40px;
+    max-width: 400px;
+}
 
+img.artist-image {
+    max-width: 400px;
+}
+
+/* Media queries for resizing */
 @media screen and (max-width: 800px) {
     .hamburger-btn {
         display: block; /* show button on smaller screens */
@@ -330,6 +341,49 @@ button:hover {
     }
 }
 
+/* Ticket mobile responsive */
+
+@media (max-width: 800px) {
+    .lineup-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 20px;
+    }
+
+    .title__tickets {
+        font-size: 35px;
+    }
+
+    .ticket__search {
+        font-size: 28px;
+    }
+
+    .artist-card {
+        padding: 15px;
+    }
+
+    .artist-card img {
+        height: 180px;
+        object-fit: cover;
+    }
+
+    .artist-card h3 {
+        font-size: 24px;
+    }
+
+    .artist-card p {
+        font-size: 18px;
+    }
+
+    .search-input {
+        width: 200px;
+    }
+
+    .search-button {
+        padding: 8px 10px;
+        font-size: 14px;
+    }
+}
 /* Ticket mobile responsive */
 
 @media (max-width: 800px) {
