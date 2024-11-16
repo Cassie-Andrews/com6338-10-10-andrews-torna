@@ -82,7 +82,7 @@ function updateDisplay(artist, albums) {
 
 
 // HANDLE FORM SUBMISSION
-document.getElementById('spotify-search').addEventListener('search-button', async (e) => {
+document.getElementById('spotify-search').addEventListener('submit', async (e) => {
     e.preventDefault();
 
     const query = document.getElementById('artist-name-search').value.trim();
