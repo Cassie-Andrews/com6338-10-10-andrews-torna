@@ -78,11 +78,11 @@ function updateDisplay(artist, albums) {
         albumsList.appendChild(albumItem); // append item to list
     });
     resultsContainer.appendChild(albumsList);// append list to display
-}
+};
 
 
 // HANDLE FORM SUBMISSION
-document.getElementById('search-form').addEventListener('submit', async (e) => {
+document.getElementById('spotify-search').addEventListener('search-button', async (e) => {
     e.preventDefault();
 
     const query = document.getElementById('artist-name-search').value.trim();
@@ -95,7 +95,7 @@ document.getElementById('search-form').addEventListener('submit', async (e) => {
     const artistResponse = await fetch(`https://api.spotify.com/v1/artists/${artistID}`, {
         method: 'GET',
         headers: { 'Authorization': `Bearer ${token}` },        
-    });
+       });
     const artistData = await artistResponse.json(); 
 
     updateDisplay(artistData, albums);// display results
