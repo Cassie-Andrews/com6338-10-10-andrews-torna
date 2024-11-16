@@ -73,23 +73,32 @@ async function getAlbums(artistID, token) {
 
 
 // DISPLAY RESULTS in the #search-results container
-function displayResults(artists) {
+function updateDisplay(artist, albums) {
     const resultsContainer = document.getElementById('search-results');
+    resultsContainer.innerHTML = ''; // clear previous results
 
-    artists.forEach(artist => {
-        const artistDiv = document.createElement('div');
-        const artistImage = artist.images.length > 0 ? artist.images[0].url : '#';
-        const artistName = artist.name;
-        const artistLink = artist.external_urls.spotify;
-        // CREATE ELEMENTS TO DISPLAY RESULTS
-        artistDiv.innerHTML = `
-            <img src="${artistImage}" class="artist-image">
-            <h3 class="artist-name">${artistName}</h3>
-            <a href="${artistLink}" target="_blank" class="artist-link">More on Spotify</a>
+    // display artist info
+    const artistDiv = document.createElement('div');
+
+    artistDiv.innerHTML = `
+        <img src=${artist.images.length > 0 ? artist.images[0].url : '#'} class="artist-image" alt="${artist.name}">
+        <h3 class="artist-name">${artist.name}</h3>
+        <p class ="artist-followers">${artist.followers.total} Followers</p>
+        <a href="${artist.external_urls.spotify}" target="_blank" class="artist-link">More on Spotify</a>
+    `;
+    resultsContainer.appendChild(artistDiv);
+
+    // display albums
+    const albumsList = document.createElement('ul'); // make list of albums
+    albums.forEach(album => { // for each album
+        const albumItem = document.createElement('li'); // make a list item
+        albumItem.innerHTML = `
+            <img src=${album.images.length > 0 ? album.images[0].url : '#'} alt="${album.name}" class="album-image">
+            <a href="${album.external_urls.spotify}" target="_blank" class="album-link">${album.name}</a>
         `;
-        // APPEND NEW ELEMENTS TO CONTAINER
-        resultsContainer.appendChild(artistDiv);
-    });
+        albumsList.appendChild(albumItem); // append item to list
+    });     
+    resultsContainer.appendChild(albumsList);// append list to display
 };
 
 
@@ -103,5 +112,5 @@ document.getElementById('spotify-search').addEventListener('submit', async (e) =
 
     const token = await getToken(); // get access token and create resource
     const artists = await searchArtists(query, token);// get search results
-    displayResults(artists);// display results
+    updateDisplay(artists);// display results
 });
