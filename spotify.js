@@ -59,6 +59,18 @@ async function searchArtists(query, token) {
     return artist.id; // return artist ID
 }
 
+// USE ARTIST ID TO RETURN THEIR ALBUMS
+async function getAlbums(artistID, token) {
+    const response = await fetch (`https://api.spotify.com/v1/artists/${artistID}/albums`, {
+        method: 'GET',
+        headers: { 'Authorization': `Bearer ${token}` },
+    });
+
+    const data = await response.json();
+    console.log('Albums:', data); // Log the search results JSON response
+    return data.items; // return artist's albums
+}
+
 
 // DISPLAY RESULTS in the #search-results container
 function displayResults(artists) {
