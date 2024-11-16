@@ -17,6 +17,10 @@
     src: url('fonts/LEMONMILK-Light.otf')
 }
 
+html, body {
+    height: 100%; /* fix for footer position */
+}
+
 body {
     display: flex;
     flex-direction: column;
@@ -26,6 +30,14 @@ body {
     color: var(--light-color);
     background-image: url("images/pixelbuddha-studio-LHiYkrRC77M-unsplash.webp");
 }
+
+.main {
+    max-width: 800px;
+    padding: 30px 60px;
+    align-self: center;
+    flex: 1 0 auto; /* fix for footer position */
+}
+
 
 /* Header & nav */
 .header {
@@ -113,14 +125,23 @@ a.nav__link:hover {
 }
 
 /* Footer */
-.footer {
+/*.footer {
     display: block;
     text-align: center;
     padding: 15px;
     background-color: var(--dark-color);
     color: var(--light-color);
     margin: 0;
+}*/
+.footer {
+    flex-shrink: 0;
+    text-align: center;
+    background-color: var(--dark-color);
+    color: var(--light-color);
+    padding: 20px;
+    margin-bottom: auto;
 }
+
 
 
 /* Ticket page */
