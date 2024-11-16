@@ -58,17 +58,21 @@ function updateDisplay(artist, albums) {
 
     // display artist info
     const artistDiv = document.createElement('div');
-
+        artistDiv.classList.add('artist-container'); 
     artistDiv.innerHTML = `
         <img src=${artist.images.length > 0 ? artist.images[0].url : '#'} class="artist-image" alt="${artist.name}">
-        <h3 class="artist-name">${artist.name}</h3>
-        <p class ="artist-followers">${artist.followers.total} Followers</p>
-        <a href="${artist.external_urls.spotify}" target="_blank" class="artist-link">More on Spotify</a>
+        <div class="artist-info">
+            <h3 class="artist-name">${artist.name}</h3>
+            <p class ="artist-followers">${artist.followers.total} Followers</p>
+            <a href="${artist.external_urls.spotify}" target="_blank" class="artist-link">More on Spotify</a>
+        </div>
     `;
     resultsContainer.appendChild(artistDiv);
 
   // display albums
     const albumsList = document.createElement('ul'); // make list of albums
+        albumsList.classList.add('albums-list'); 
+
     albums.forEach(album => { // for each album
         const albumItem = document.createElement('li'); // make a list item
         albumItem.innerHTML = `

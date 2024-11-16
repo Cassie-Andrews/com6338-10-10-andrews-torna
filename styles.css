@@ -3,6 +3,9 @@
     --light-color: #d6d6d6;
     --accent-color: #58bc80;
     --dark-color: #000000;
+    --card-color: #3E2F2F; 
+    --light-purple: #C5B3E3;
+    --purple: #8C70D2;
 }
 
 @font-face {
@@ -261,23 +264,95 @@ a.nav__link:hover {
 
 /* Spotify search results */
 .search-results {
-    padding: 30px 60px;
-    display: flex;
-    flex-direction: row;
+    /*padding: 30px 60px;*/
+    /*display: flex;*/
     flex-wrap: wrap;
-    align-items:first baseline;
+    align-content: space-around;
     justify-content: space-around;
-    text-align: center;
+    align-self: center;
 }
 
-.search-results > div {
-    padding: 40px;
-    max-width: 400px;
-}
+    /* Spotify artist info */
+    .artist-container {
+        display: felx;
+        flex-wrap: wrap;
+        margin: 30px;
+        justify-content: center;
+        /* below this point, follows .artist-card styles */
+        background-color: var(--card-color);
+        padding: 10px;
+        border-radius: 8px;
+        color: var(--light-color);
+        text-align: center;
+        min-width: 200px;
+    }
 
-img.artist-image {
-    max-width: 400px;
-}
+            .artist-image {
+                /*max-width: 400px;*/
+                height: 100%;
+                width: 100%;
+            }
+
+            .artist-info {
+                padding: 10px;
+                height: 100%;
+                width: 100%;
+                align-content: flex-end;
+                text-align: left;
+                display: flex;
+                flex-direction: column;
+            }
+
+            .artist-link {
+                font-family: 'Lemon Bold';
+                color: var(--purple);
+                text-decoration: none;
+            }
+
+        /* Spotify album info */
+        .albums-list {
+            list-style: none;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            align-self: center;
+            justify-content: space-around;
+            align-content: space-around;
+            margin: 0;
+            padding: 0;
+        }
+
+            .albums-list > li {
+                display: flex;
+                flex-direction: column;
+                margin: 10px;
+                max-width: 200px;
+                /* below this point, follows .artist-card styles */
+                background-color: var(--card-color);
+                font-family: 'Lemon';
+                /* padding: 10px; */
+                border-radius: 8px;
+                color: var(--light-color);
+                text-align: center;
+            }
+
+                .album-image {
+                    padding: 10px;
+                }
+
+                .album-link {
+                    padding: 10px 20px 10px;
+                    color: var(--link-color);
+                    text-decoration: none;
+                }
+                
+                .album-link:hover {
+                    color: var(--accent-color);
+                    text-decoration: none;
+                }
+
+
+
 
 /* Media queries for resizing */
 @media screen and (max-width: 800px) {
