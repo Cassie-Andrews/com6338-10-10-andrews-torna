@@ -44,8 +44,8 @@ body {
 .main {
     display: flex;
     flex-direction: column;
-    max-width: 800px;
-    padding: 30px 60px;
+
+    /*padding: 30px 60px;*/
     align-self: center;
     text-align: center;
     flex: 1 0 auto; /* fix for footer position */
@@ -273,6 +273,9 @@ a.nav__link:hover {
 
 
 /*** SPOTIFY PAGE ***/
+
+
+
 /* Spotify page - title and search form section */
 .container__spotify {
     display: flex;
@@ -318,7 +321,7 @@ a.nav__link:hover {
 /* Spotify page - artist card */
 .artist-container {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
     margin: 30px;
     align-self: center;
     justify-content: center;
@@ -342,6 +345,7 @@ a.nav__link:hover {
     text-align: left;
     display: flex;
     flex-direction: column;
+    padding: 10px;
 }
 
 .artist-name { 
