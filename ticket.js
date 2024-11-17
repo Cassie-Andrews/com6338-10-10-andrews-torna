@@ -69,6 +69,34 @@ async function searchArtist(artistName) {
     }
 }
 
-fetchEvents();
 
 
+//// CODE FOR RETRIEVING LOCALSTORAGE DATA ////
+
+// on page load, check for storedName in local storage
+window.addEventListener('load', async (e) => {
+    const storedName = localStorage.getItem('storedName');
+        console.log("Stored name:" + " " + storedName);
+    if(storedName) { // if storedName is found
+        searchStoredName(storedName); // run function to search by stored name
+    } else {
+        fetchEvents(); // otherwise, fetchEvents
+    }
+});
+
+
+// search by stored name
+async function searchStoredName(storedName) {
+    try {
+        const response = await fetch(`https://app.ticketmaster.com/discovery/v2/events.json?apikey=${apiKey}&classificationName=Music&keyword=${storedName}&countryCode=US&size=10`);
+        const data = await response.json();
+        if (data._embedded && data._embedded.events) {
+            console.log(data);
+            displayEvents(data._embedded.events);
+        } else {
+            lineupGrid.innerHTML = `<p>No events found for "${storedName}".</p>`;
+        }
+    } catch (error) {
+        lineupGrid.innerHTML = `<p>Failed to load events for "${storedName}". Please try again later.</p>`;
+    }
+};
