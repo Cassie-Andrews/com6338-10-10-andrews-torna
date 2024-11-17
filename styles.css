@@ -314,7 +314,7 @@ a.nav__link:hover {
     /*align-items:first baseline;*/
     justify-content: space-around;
     align-self: center;
-    max-width: 900px;
+    max-width: 1200px;
     padding: 30px 60px;
 }
 
@@ -325,9 +325,8 @@ a.nav__link:hover {
     margin: 30px;
     align-self: center;
     justify-content: center;
-    /* below this point, follows .artist-card styles */
     background-color: var(--card-color);
-    padding: 10px;
+    padding: 20px;
     border-radius: 8px;
     color: var(--light-color);
     text-align: center;
@@ -336,6 +335,7 @@ a.nav__link:hover {
 .artist-image {
     height: 100%;
     width: 100%;
+    margin-bottom: 20px;
 }
 
 .artist-info {
@@ -345,7 +345,7 @@ a.nav__link:hover {
     text-align: left;
     display: flex;
     flex-direction: column;
-    padding: 10px;
+    margin-bottom: 10px;
 }
 
 .artist-name { 
@@ -368,18 +368,14 @@ a.nav__link:hover {
 }
 
 /* Spotify page - album cards */
-img.artist-image {
-    max-width: 400px;
-}
-
 .albums-list {
     list-style: none;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     align-self: center;
-    justify-content: space-around;
-    align-content: space-around;
+    justify-content: space-evenly;
+    align-content: space-between;
     margin: 20px;
     padding: 0;
 }
@@ -388,7 +384,7 @@ img.artist-image {
     display: flex;
     flex-direction: column;
     margin: 10px;
-    max-width: 200px;
+    max-width: 300px;
     /* below this point, follows .artist-card styles */
     background-color: var(--card-color);
     font-family: 'Lemon';
@@ -419,7 +415,7 @@ img.artist-image {
 /****** MEDIA QUERIES ******/
 
 
-/*** MEDIA QUERIES - small screens ***/
+/*** resizing for small screens ***/
 @media screen and (max-width: 800px) {
     /* Navigation menu on small screens */
     .hamburger-btn {
@@ -530,8 +526,9 @@ img.artist-image {
 
 
 
-/*** MEDIA QUERIES - larger screens ***/
+/*** resizing for larger screens ***/
 @media screen and (max-width: 1300px) {
+    /* nav on larger screens */
     nav > ul {
         justify-content: space-evenly;
     }
