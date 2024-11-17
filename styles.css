@@ -47,13 +47,20 @@ body {
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+    padding: 10px 30px;
 }
 
 .hamburger-menu {
-    display: block;
-    position: absolute;
-    right: 0;
-    top: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    list-style: none;
+    width: auto;
+}
+
+.hamburger-menu.show-menu {
+    display: flex; /* Show the menu when the class is added */
+    flex-direction: column;
 }
 
 .hamburger-btn {
@@ -61,6 +68,10 @@ body {
     background: none;
     border: none;
     cursor: pointer;
+}
+
+.hamburger-menu.open {
+    display: flex; /* Display as a flex container when opened */
 }
 
 a.nav__link {
