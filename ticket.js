@@ -50,7 +50,7 @@ searchForm.addEventListener("submit", function(event) {
     const artistName = searchInput.value.trim();
     if (artistName) {
         searchArtist(artistName);
-        localStorage.setItem('artist-name', artistName); // save user input to localStorage
+        localStorage.setItem('storedName', artistName); // save user input to localStorage
     }
 });
 

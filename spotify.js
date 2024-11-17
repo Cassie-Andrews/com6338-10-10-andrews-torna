@@ -101,11 +101,42 @@ document.getElementById('spotify-search').addEventListener('submit', async (e) =
         headers: { 'Authorization': `Bearer ${token}` },        
        });
     const artistData = await artistResponse.json(); 
-    localStorage.setItem('artist-name', query);
+    localStorage.setItem('storedName', query); // save user input to localStorage
     updateDisplay(artistData, albums);// display results
 });
 
 
+// HANDLE LOCALSTORAGE CHECK
+window.addEventListener('load', async (e) => { 
+    const storedName = localStorage.getItem('storedName');
+        console.log("Stored name:" + " " + storedName);
+    if(!storedName) return; // if none found, return
+
+    const token = await getToken(); // get access token and create resource
+    const artistID = await searchStoredName(storedName, token); // get ID from storedName in local storage
+    const albums = await getAlbums(artistID, token); // get artist's albums
+    const artistResponse = await fetch(`https://api.spotify.com/v1/artists/${artistID}`, {
+        method: 'GET',
+        headers: { 'Authorization': `Bearer ${token}` },        
+       });
+    const artistData = await artistResponse.json(); 
+    updateDisplay(artistData, albums); // display results
+});
+
+
+// HANDLE ARTIST SEARCH FROM LOCAL STORAGE NAME
+async function searchStoredName(storedName, token) { 
+    const response = await fetch(`https://api.spotify.com/v1/search?q=${storedName}&type=artist&limit=1`, {
+        method: 'GET',
+        headers: { 'Authorization': `Bearer ${token}` },
+    });
+
+    const data = await response.json();
+    const artist = data.artists.items[0];
+    const artistID = artist.id;
+    console.log('Search Response:', artist); // Log the search results JSON response
+    return artist.id; // return artist ID
+};
 
 //NOTES
     // DOCUMENTATION: https://developer.spotify.com/documentation/web-api/concepts/api-calls
