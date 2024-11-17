@@ -40,7 +40,7 @@ function displayEvents(events) {
             <h3>${event.name}</h3>
             <p>${new Date(event.dates.start.localDate).toDateString()}</p>
             <p>${event._embedded.venues[0].name}, ${event._embedded.venues[0].city.name}</p>
-            <a href="${event.url}" target="_blank">Buy Tickets</a>
+            <a href="${event.url}" target="_blank" class="ticket-link">Buy Tickets</a>
         </div>
     `).join("");
 }

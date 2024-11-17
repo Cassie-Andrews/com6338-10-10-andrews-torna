@@ -1,11 +1,11 @@
 :root {
-    --primary-color: #202020;
     --light-color: #d6d6d6;
     --accent-color: #58bc80;
     --dark-color: #000000;
     --card-color: #3E2F2F; 
     --light-purple: #C5B3E3;
     --purple: #8C70D2;
+    --magenta: #b3005f;
 }
 
 @font-face {
@@ -25,23 +25,14 @@ body {
     display: flex;
     flex-direction: column;
     margin: auto;
-    background-color: var(--primary-color);
+    background-color: var(--dark-color);
     font-family: 'Lemon';
     color: var(--light-color);
     background-image: url("images/darkness.png");
 }
 
-.main {
-    max-width: 800px;
-    padding: 30px 60px;
-    align-self: center;
-    flex: 1 0 auto; /* fix for footer position */
-}
-
-
-/* Header & nav */
 .header {
-    font-family: 'Lemon Bold';
+    font-family: 'Lemon Bold', sans-serif;
     background-color: var(--dark-color);
     display: flex;
     flex-direction: row;
@@ -50,6 +41,38 @@ body {
     padding: 10px 30px;
 }
 
+.main {
+    display: flex;
+    flex-direction: column;
+    max-width: 800px;
+    padding: 30px 60px;
+    align-self: center;
+    text-align: center;
+    flex: 1 0 auto; /* fix for footer position */
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    max-width: 800px;
+    align-self: center;
+    text-align: center;
+    justify-content: center;
+}
+
+.footer {
+    flex-shrink: 0;
+    text-align: center;
+    background-color: var(--dark-color);
+    color: var(--light-color);
+    padding: 20px;
+    margin-bottom: auto;
+}
+
+
+
+
+/*** NAVIGATION ***/
 .hamburger-menu {
     margin: 0;
     display: flex;
@@ -75,7 +98,7 @@ body {
 }
 
 a.nav__link {
-    color: var(--link-color);
+    color: var(--light-color);
     text-decoration: none;
     padding: 10px;
 }
@@ -85,36 +108,81 @@ a.nav__link:hover {
     text-decoration: none;
 }
 
-/* Page content */
-.main {
+
+
+
+/*** HOME PAGE ***/
+
+/* Home page - Spotify preview */
+.spotify__preview{
+    padding-bottom: 20px;
+    text-align: center;
     display: flex;
     flex-direction: column;
     align-self: center;
-    text-align: center;
 }
 
-.content {
-    display: flex;
-    flex-direction: column;
-    max-width: 800px;
-    align-self: center;
-    text-align: center;
-    justify-content: center;
+.spotify__image {
+    display: block;
+    padding-bottom: 10px;
+    width: 1000px;
+    margin-left: 30px;
+    margin-right: 30px;
 }
 
-/* Footer */
-.footer {
-    flex-shrink: 0;
-    text-align: center;
-    background-color: var(--dark-color);
+.sfriend__button {
+    padding: 10px 20px;
+    background-color: var(--purple);
+    border: none;
+    border-radius: 5px;
     color: var(--light-color);
-    padding: 20px;
-    margin-bottom: auto;
+    cursor: pointer;
+    text-align: center;
+    font-family: 'lemon bold';
+    text-decoration: none;
+}
+.sfriend__button:hover{
+    background-color: var(--magenta);
+    color: var(--light-color);
+}
+
+/* Home page - Ticketmaster Preview */
+.ticketmaster__preview{
+    padding-bottom: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+}
+
+.fticket__image {
+    display: block;
+    padding-bottom: 10px;
+    width: 1000px;
+    margin-left: 30px;
+    margin-right: 30px;
+}
+.sticket__button {
+    padding: 10px 20px;
+    background-color: var(--purple);
+    border: none;
+    border-radius: 5px;
+    color: var(--light-color);
+    cursor: pointer;
+    text-align: center;
+    font-family: 'lemon bold';
+    text-decoration: none;
+}
+
+.sticket__button:hover{
+    background-color: var(--magenta);
+    color: var(--light-color);
 }
 
 
 
-/* Ticket page */
+
+/*** TICKETMASTER PAGE ***/
 .title__tickets {
     font-family: 'lemon bold';
     font-size: 55px;
@@ -126,48 +194,52 @@ a.nav__link:hover {
 }
 
 .lineup-grid {
-            display:grid;
-            grid-template-columns: repeat(3, minmax(250px, 1fr));
-            gap: 25px;
-            padding-bottom: 30px;
-            padding: 30px 60px;
-        }
+    display:grid;
+    grid-template-columns: repeat(3, minmax(250px, 1fr));
+    gap: 25px;
+    padding-bottom: 30px;
+    padding: 30px 60px;
+}
 
-        .artist-card {
-            background-color: #3E2F2F;
-            font-family: 'Lemon Bold';
-            padding: 10px;
-            border-radius: 8px;
-            color: #FFFFFF;
-            text-align: center;
-        }
+.artist-card {
+    background-color: var(--card-color);
+    font-family: 'Lemon Bold';
+    padding: 10px;
+    border-radius: 8px;
+    color: var(--light-color);
+    text-align: center;
+}
 
-        .artist-card h3 {
-            font-family: 'lemon bold';
-            font-size: 30px;
-            margin-bottom: 5px;
-        }
+.artist-card h3 {
+    font-family: 'lemon bold';
+    font-size: 30px;
+    margin-bottom: 5px;
+}
 
-        .artist-card p {
-            font-size: 25 px;
-            font-family: 'Lemon';
-            margin-bottom: 20px;
-            color: #C5B3E3;
-            line-height: 15px;
-        }
+.artist-card p {
+    font-size: 25 px;
+    font-family: 'Lemon';
+    margin-bottom: 20px;
+    color: var(--light-purple);
+    line-height: 15px;
+}
 
-        .artist-card a {
-            color: #8C70D2;
-            font-weight: bold;
-            text-decoration: none;
-            margin-right: 10px;
-        }
-        .artist-card img {
-            width: 100%;
-            height: 220px;
-            border-radius: 5px;
-            object-fit: cover
-        }
+.artist-card a {
+    color: var(--purple);
+    font-weight: bold;
+    text-decoration: none;
+    margin-right: 10px;
+}
+.artist-card img {
+    width: 100%;
+    height: 220px;
+    border-radius: 5px;
+    object-fit: cover
+}
+
+.ticket-link:hover {
+    color: var(--accent-color);
+}
 
 .search-form {
     display: flex;
@@ -187,121 +259,65 @@ a.nav__link:hover {
 
 .search-button {
     padding: 8px 12px;
-    background-color: #8C70D2;
-    color: white;
+    background-color: var(--purple);
+    color: var(--light-color);
     cursor: pointer;
     border-radius: 50px;
 }
 
 .search-button:hover {
-    background-color: #b3005f;
-}
-
-.spotify__image {
-    display: block;
-    padding-bottom: 10px;
-    width: 1000px;
-    margin-left: 30px;
-    margin-right: 30px;
-}
-.sfriend__button {
-    padding: 10px 20px;
-    background-color: var(--accent-color);
-    border: none;
-    border-radius: 5px;
-    color: var(--light-color);
-    cursor: pointer;
-    text-align: center;
-    font-family: 'lemon bold';
-}
-.sfriend__button:hover{
-    background-color: var(--light-color);
-    color: var(--dark-color);
-}
-
-.fticket__image {
-    display: block;
-    padding-bottom: 10px;
-    width: 1000px;
-    margin-left: 30px;
-    margin-right: 30px;
-}
-.sticket__button {
-    padding: 10px 20px;
-    background-color: var(--accent-color);
-    border: none;
-    border-radius: 5px;
-    color: var(--light-color);
-    cursor: pointer;
-    text-align: center;
-    font-family: 'lemon bold';
-}
-
-.ticketmaster__preview{
-    padding-bottom: 20px;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-self: center;
-}
-
-.spotify__preview{
-    padding-bottom: 20px;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-self: center;
-}
-
-.sticket__button:hover{
-    background-color: var(--light-color);
-    color: var(--dark-color);
+    background-color: var(--magenta);
 }
 
 
-/* SPOTIFY PAGE */
+
+
+/*** SPOTIFY PAGE ***/
+/* Spotify page - title and search form section */
 .container__spotify {
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
-    .title__spotify {
-        font-family: 'lemon bold';
-        font-size: 55px;
-        text-align: center;
-    }
+.title__spotify {
+    font-family: 'lemon bold';
+    font-size: 55px;
+    text-align: center;
+}
 
-    #spotify-search {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        flex-wrap: wrap;
-        padding: 12px;
-    }
-
-        #artist-name-search {
-            margin: 10px;
-        }
-
-        #spotify-search-button {
-            margin: 10px;
-        }
-
-/* SPOTIFY PAGE - search results */
-.search-results {
-    /*padding: 30px 60px;*/
+#spotify-search {
     display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 12px;
+}
+
+#artist-name-search {
+    margin: 10px;
+}
+
+#spotify-search-button {
+    margin: 10px;
+}
+
+/* Spotify page - search results section */
+.search-results {
+    display: flex;
+    flex-direction: row;
     flex-wrap: wrap;
     align-content: space-around;
+    /*align-items:first baseline;*/
     justify-content: space-around;
     align-self: center;
     max-width: 900px;
+    padding: 30px 60px;
 }
 
-/* Spotify artist info */
+/* Spotify page - artist card */
 .artist-container {
-    display: felx;
+    display: flex;
     flex-wrap: wrap;
     margin: 30px;
     align-self: center;
@@ -314,37 +330,44 @@ a.nav__link:hover {
     text-align: center;
 }
 
-    .artist-image {
-        /*max-width: 400px;*/
-        height: 100%;
-        width: 100%;
-    }
+.artist-image {
+    height: 100%;
+    width: 100%;
+}
 
-    .artist-info {
-        height: 100%;
-        width: 100%;
-        align-content: flex-end;
-        text-align: left;
-        display: flex;
-        flex-direction: column;
-    }
+.artist-info {
+    height: 100%;
+    width: 100%;
+    align-content: flex-end;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+}
 
-    .artist-name { 
-        /* same as .artist-card h3 */
-        font-family: 'lemon bold';
-        font-size: 30px;
-        margin: 5px 0px;
-        color: #FFFFFF;
-        line-height: 32px;
-    }
+.artist-name { 
+    /* same as .artist-card h3 */
+    font-family: 'lemon bold';
+    font-size: 30px;
+    margin: 5px 0px;
+    color: var(--light-color);
+    line-height: 32px;
+}
 
-    .artist-link {
-        font-family: 'Lemon Bold';
-        color: var(--purple);
-        text-decoration: none;
-    }
+.artist-link {
+    font-family: 'Lemon Bold';
+    color: var(--purple);
+    text-decoration: none;
+}
 
-/* Spotify album info */
+.artist-link:hover {
+    color: var(--accent-color);
+}
+
+/* Spotify page - album cards */
+img.artist-image {
+    max-width: 400px;
+}
+
 .albums-list {
     list-style: none;
     display: flex;
@@ -357,43 +380,44 @@ a.nav__link:hover {
     padding: 0;
 }
 
-    .albums-list > li {
-        display: flex;
-        flex-direction: column;
-        margin: 10px;
-        max-width: 200px;
-        /* below this point, follows .artist-card styles */
-        background-color: var(--card-color);
-        font-family: 'Lemon';
-        /* padding: 10px; */
-        border-radius: 8px;
-        color: var(--light-color);
-        text-align: center;
-    }
+.albums-list > li {
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    max-width: 200px;
+    /* below this point, follows .artist-card styles */
+    background-color: var(--card-color);
+    font-family: 'Lemon';
+    /* padding: 10px; */
+    border-radius: 8px;
+    color: var(--light-color);
+    text-align: center;
+}
 
-        .album-image {
-            padding: 10px;
-        }
+.album-image {
+    padding: 10px;
+}
 
-        .album-link {
-            padding: 10px 20px 10px;
-            color: var(--link-color);
-            text-decoration: none;
-        }
-        
-        .album-link:hover {
-            color: var(--accent-color);
-            text-decoration: none;
-        }
+.album-link {
+    padding: 10px 20px 10px;
+    color: var(--light-color);
+    text-decoration: none;
+}
 
-
+.album-link:hover {
+    color: var(--accent-color);
+    text-decoration: none;
+}
 
 
 
 
+/****** MEDIA QUERIES ******/
 
-/* Media queries for resizing */
+
+/*** MEDIA QUERIES - small screens ***/
 @media screen and (max-width: 800px) {
+    /* Navigation menu on small screens */
     .hamburger-btn {
         display: block; /* show button on smaller screens */
     }
@@ -441,22 +465,9 @@ a.nav__link:hover {
     ul.hamburger-menu li:last-child {
         padding: 20px;
     }
-}
 
 
-@media screen and (max-width: 1300px) {
-    nav > ul {
-        justify-content: space-evenly;
-    }
-
-    nav > ul > li {
-        margin-left: 0;
-    }
-}
-
-/* Ticket mobile responsive */
-
-@media (max-width: 800px) {
+    /* Ticketmaster page on small screens */
     .lineup-grid {
         grid-template-columns: 1fr;
         gap: 20px;
@@ -496,49 +507,7 @@ a.nav__link:hover {
         padding: 8px 10px;
         font-size: 14px;
     }
-}
-/* Ticket mobile responsive */
 
-@media (max-width: 800px) {
-    .lineup-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
-        padding: 20px;
-    }
-
-    .title__tickets {
-        font-size: 35px;
-    }
-
-    .ticket-search {
-        font-size: 28px;
-    }
-
-    .artist-card {
-        padding: 15px;
-    }
-
-    .artist-card img {
-        height: 180px;
-        object-fit: cover;
-    }
-
-    .artist-card h3 {
-        font-size: 24px;
-    }
-
-    .artist-card p {
-        font-size: 18px;
-    }
-
-    .search-input {
-        width: 200px;
-    }
-
-    .search-button {
-        padding: 8px 10px;
-        font-size: 14px;
-    }
     .spotify__image {
         width: 530px;
         display: flex;
@@ -546,84 +515,18 @@ a.nav__link:hover {
         padding-top: 2px;
 
     }
+
     .fticket__image {
         width: 530px;
         display: flex;
         padding-bottom: 2px;
         padding-top: 2px;
     }
-/* Spotify search results */
-.search-results {
-    padding: 30px 60px;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items:first baseline;
-    justify-content: space-around;
-    text-align: center;
-}
-
-.search-results > div {
-    padding: 40px;
-    max-width: 400px;
-}
-
-img.artist-image {
-    max-width: 400px;
-}
-
-/* Media queries for resizing */
-@media screen and (max-width: 800px) {
-    .hamburger-btn {
-        display: block; /* show button on smaller screens */
-    }
-
-    ul.hamburger-menu {
-        display: flex;
-        flex-direction: column;
-        position: absolute;
-        top: 50px;
-        left: 0;
-        width: 100%;
-        background-color: var(--dark-color);
-        transform: translateY(-10px);
-        visibility: hidden;
-        transition: transform 0.3s ease-in-out, visibility 0s 0.3s;
-        padding: 0;
-        opacity: 0;
-    }
-
-    ul.hamburger-menu.show-menu {
-        transform: translateY(0);
-        opacity: 1;
-        visibility: visible;
-        transition: transform 0.3s ease-in-out, visibility 0s 0.3s;
-    }
-
-    ul.hamburger-menu li {
-        padding: 10px 0;
-        margin: 0;
-        text-align: center;
-        font-weight: 500;
-        color: var(--light-color);
-        font-family: 'Lemon', sans-serif;
-        visibility: hidden;
-        opacity: 0;
-        transition: opacity 0.2s ease-in-out, visibility 0s 0.3s;
-    }
-
-    nav ul.hamburger-menu.show-menu li {
-        visibility: visible;
-        opacity: 1;
-        transition: opacity 0.2s ease-in-out, visibility 0s 0s;
-    }
-    
-    ul.hamburger-menu li:last-child {
-        padding: 20px;
-    }
 }
 
 
+
+/*** MEDIA QUERIES - larger screens ***/
 @media screen and (max-width: 1300px) {
     nav > ul {
         justify-content: space-evenly;
@@ -632,49 +535,4 @@ img.artist-image {
     nav > ul > li {
         margin-left: 0;
     }
-}
-
-/* Ticket mobile responsive */
-
-@media (max-width: 800px) {
-    .lineup-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
-        padding: 20px;
-    }
-
-    .title__tickets {
-        font-size: 35px;
-    }
-
-    .ticket__search {
-        font-size: 28px;
-    }
-
-    .artist-card {
-        padding: 15px;
-    }
-
-    .artist-card img {
-        height: 180px;
-        object-fit: cover;
-    }
-
-    .artist-card h3 {
-        font-size: 24px;
-    }
-
-    .artist-card p {
-        font-size: 18px;
-    }
-
-    .search-input {
-        width: 200px;
-    }
-
-    .search-button {
-        padding: 8px 10px;
-        font-size: 14px;
-    }
-}
 }
