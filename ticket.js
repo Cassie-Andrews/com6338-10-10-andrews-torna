@@ -29,6 +29,7 @@ function getUniqueArtists(events, count) {
         }
         if (uniqueArtistEvents.length >= count) break;
     }
+    
     return uniqueArtistEvents;
 }
 
@@ -49,6 +50,7 @@ searchForm.addEventListener("submit", function(event) {
     const artistName = searchInput.value.trim();
     if (artistName) {
         searchArtist(artistName);
+        localStorage.setItem('artist-name', artistName); // save user input to localStorage
     }
 });
 
@@ -57,6 +59,7 @@ async function searchArtist(artistName) {
         const response = await fetch(`https://app.ticketmaster.com/discovery/v2/events.json?apikey=${apiKey}&classificationName=Music&keyword=${artistName}&countryCode=US&size=10`);
         const data = await response.json();
         if (data._embedded && data._embedded.events) {
+            console.log(data);
             displayEvents(data._embedded.events);
         } else {
             lineupGrid.innerHTML = `<p>No events found for "${artistName}".</p>`;

@@ -101,7 +101,7 @@ document.getElementById('spotify-search').addEventListener('submit', async (e) =
         headers: { 'Authorization': `Bearer ${token}` },        
        });
     const artistData = await artistResponse.json(); 
-
+    localStorage.setItem('artist-name', query);
     updateDisplay(artistData, albums);// display results
 });
 
