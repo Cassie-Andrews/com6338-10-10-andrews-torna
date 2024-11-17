@@ -617,11 +617,12 @@ img.artist-image {
         display: flex;
         flex-direction: column;
         position: absolute;
-        top: 50px;
+        top: 142px;
         left: 0;
         width: 100%;
+        height: 150px;
         background-color: var(--dark-color);
-        transform: translateY(-10px);
+        transform: translateY(-50px);
         visibility: hidden;
         transition: transform 0.3s ease-in-out, visibility 0s 0.3s;
         padding: 0;
@@ -629,10 +630,10 @@ img.artist-image {
     }
 
     ul.hamburger-menu.show-menu {
-        transform: translateY(0);
+        transform: translateY(50);
         opacity: 1;
         visibility: visible;
-        transition: transform 0.3s ease-in-out, visibility 0s 0.3s;
+        transition: transform 0.5s ease-in-out, visibility 0s 0.3s;
     }
 
     ul.hamburger-menu li {
@@ -644,13 +645,13 @@ img.artist-image {
         font-family: 'Lemon', sans-serif;
         visibility: hidden;
         opacity: 0;
-        transition: opacity 0.2s ease-in-out, visibility 0s 0.3s;
+        transition: opacity 0.5s ease-in-out, visibility 0s 0.5s;
     }
 
     nav ul.hamburger-menu.show-menu li {
         visibility: visible;
         opacity: 1;
-        transition: opacity 0.2s ease-in-out, visibility 0s 0s;
+        transition: opacity 0.5s ease-in-out, visibility 0s 0.5s;
     }
     
     ul.hamburger-menu li:last-child {
